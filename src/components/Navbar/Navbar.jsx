@@ -60,18 +60,18 @@ const Navbar = () => {
               </a>
             </li>
             <li className="opacity-90 hover:opacity-100 px-3 py-1">
-              <a href="#tentangkami" className="block">
+              <a href="/" className="block">
                 Gems
               </a>
             </li>
             <li className="opacity-90 hover:opacity-100 px-3 py-1">
-              <a href="#fitur" className="block">
+              <a href="/" className="block">
                 Rank
               </a>
             </li>
             <li className="px-3 py-1">
               <a
-                href=""
+                href="https://discord.gg/Rcmw5RN5m6"
                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300"
               >
                 <i className="ri-discord-fill text-white mr-2"></i> Join Discord

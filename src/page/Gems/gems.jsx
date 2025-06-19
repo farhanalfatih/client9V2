@@ -11,8 +11,7 @@ const Gem = () => {
   const [showNicknameInput, setShowNicknameInput] = useState(true);
 
   const isNicknameValid = nickname.trim() !== "";
-  const formattedNickname =
-    platform === "bedrock" ? `.${nickname}` : nickname;
+  const formattedNickname = platform === "bedrock" ? `.${nickname}` : nickname;
 
   useEffect(() => {
     const savedNick = localStorage.getItem("nickname");
@@ -78,9 +77,7 @@ const Gem = () => {
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
               Preview:{" "}
-              <span className="font-medium">
-                {formattedNickname || "..."}
-              </span>
+              <span className="font-medium">{formattedNickname || "..."}</span>
             </p>
             <button
               onClick={handleContinue}
@@ -97,12 +94,35 @@ const Gem = () => {
           </motion.div>
         </div>
       )}
-      
+
       <div className="min-h-screen bg-white dark:bg-gradient-to-b dark:to-black dark:from-purple-800 transition-all duration-300">
         <Banner />
 
         <div className="mt-20 px-4">
           <div className="max-w-4xl mx-auto p-5 bg-white dark:bg-zinc-900 shadow-lg rounded-lg transition-all duration-300">
+            <div className="relative group text-center">
+              <img
+                src={`https://mc-heads.net/head/${nickname}/512`}
+                alt={`Head of ${nickname}`}
+                className="w-22 h-22 mx-auto rounded-lg shadow-lg"
+              />
+              <p className="mt-4 text-lg text-foreground font-medium">
+                {formattedNickname}
+              </p>
+
+              <button
+                onClick={() => {
+                  localStorage.removeItem("nickname");
+                  localStorage.removeItem("platform");
+                  setNickname("");
+                  setPlatform("java");
+                  setShowNicknameInput(true);
+                }}
+                className="text-center bg-red-500 text-white text-sm px-3 py-1 rounded-md shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
 
