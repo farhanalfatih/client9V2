@@ -60,18 +60,18 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#home" className="hover:underline">
+              <a href="https://dragonsoof.com/"  target="_blank" className="hover:underline">
                 Beranda
               </a>
             </li>
             <li>
               <a href="/" className="hover:underline">
-                Gem
+                Gems
               </a>
             </li>
             <li>
               <a href="Rank" className="hover:underline">
-                Fitur
+                Rank
               </a>
             </li>
           </ul>

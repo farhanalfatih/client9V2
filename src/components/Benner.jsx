@@ -25,7 +25,7 @@ const VideoBanner = () => {
       <div className="absolute inset-0 flex flex-col justify-center items-center z-20 text-white p-4 text-center">
         <h1 className="text-5xl font-bold drop-shadow-lg text-black dark:text-white">Gems</h1>
         <p className="text-lg mt-4 max-w-xl drop-shadow-md text-black dark:text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae mollitia necessitatibus illum consectetur iure tempore.
+            pilihh paket gems yg kamu inginkan, dan rasakan pengalaman bermain yang lebih seru!
         </p>
       </div>
     </div>
