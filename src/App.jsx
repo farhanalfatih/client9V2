@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Gem from './page/Gems/gems'
-import Rank from './page/Rank/Rank'
 import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
@@ -11,7 +10,6 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Gem />} />
-          <Route path="/Rank" element={<Rank/>} />
         </Routes>
 
       </Router>
