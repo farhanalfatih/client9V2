@@ -2,6 +2,7 @@ import Gambar from '../../assets/logo3.png';
 import Gambar2 from '../../assets/logo1.png';
 import Gambar3 from '../../assets/logo2.png';
 import Gambar4 from '../../assets/chestgemV1.png';
+import Gambar5 from '../../assets/BagOfGems.png';
 
 
 
@@ -26,7 +27,7 @@ export const gemPackages = [
     price: 50000,
     oldPrice: 64250,
     discount: "~22%",
-    image: Gambar2,
+    image: Gambar5,
   },
   {
     id: 4,
