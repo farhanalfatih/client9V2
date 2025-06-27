@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GemCard from "../../components/cardgem/card";
 import { gemPackages } from "../../components/cardgem/gem";
-import Banner from "../../components/Benner";
+import Banner from "../../components/Benner1";
 import Footer from "../../components/footer/Footer";
 
 const Gem = () => {
