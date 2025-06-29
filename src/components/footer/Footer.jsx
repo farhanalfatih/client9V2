@@ -4,7 +4,6 @@ import "remixicon/fonts/remixicon.css";
 const Footer = () => {
   return (
     <>
-
       <footer className="dark:bg-black dark:text-white bg-white text-black p-10 flex flex-wrap justify-between gap-5">
         {/* Bagian Media Sosial */}
         <div className="min-w-[250px]">
@@ -20,7 +19,7 @@ const Footer = () => {
             >
               <i className="ri-tiktok-fill"></i>
             </a>
-             <a
+            <a
               href="https://www.tiktok.com/@allnaaaaaaa"
               aria-label="TIKTOK"
               className="w-10 h-10 bg-gray-700 flex items-center justify-center
@@ -28,7 +27,7 @@ const Footer = () => {
             >
               <i class="ri-youtube-fill"></i>
             </a>
-             <a
+            <a
               href="https://www.tiktok.com/@allnaaaaaaa"
               aria-label="TIKTOK"
               className="w-10 h-10 bg-gray-700 flex items-center justify-center
@@ -44,11 +43,11 @@ const Footer = () => {
             Contact
           </h3>
           <ul>
+            <p className="text-sm  mb-2">Indonesia</p>
             <li className="text-sm  mb-2 hover:underline">
-              <a href="">sasasasasasasa@gmail.com</a>
-            </li>
-            <li className="text-sm  mb-2 hover:underline">
-              <a href=""><span>+62</span> 000 000 000</a>
+              <a href="https://wa.me/6285326972099">
+                <span>+62</span> 853-2697-2099
+              </a>
             </li>
           </ul>
         </div>
@@ -60,7 +59,11 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="https://dragonsoof.com/"  target="_blank" className="hover:underline">
+              <a
+                href="https://dragonsoof.com/"
+                target="_blank"
+                className="hover:underline"
+              >
                 Beranda
               </a>
             </li>
@@ -70,7 +73,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="Rank" className="hover:underline">
+              <a href="/rank" className="hover:underline">
                 Rank
               </a>
             </li>

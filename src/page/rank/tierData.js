@@ -1,26 +1,26 @@
 export const rankData = {
   survival: [
     {
-      tier: "Tier 1",
       name: "VIP",
+       price: 15000,
       features: ["Prefix Chat", "/nick", "Menu Donatur"],
     },
     {
-      tier: "Tier 2",
       name: "HERO",
+       price: 15000,
       features: ["Prefix Chat", "/nick", "/hat", "Menu Donatur"],
     },
     {
-      tier: "Tier 3",
       name: "GOD",
+       price: 15000,
       features: [
         "Prefix Chat", "/fly", "/nick", "/hat", "/repair", "/feed",
         "No TP Timer", "Menu Donatur",
       ],
     },
     {
-      tier: "Tier 4",
       name: "TITAN",
+       price: 15000,
       features: [
         "Prefix Chat", "/fly", "/nick", "/hat", "/repair", "/feed",
         "No TP DELAY", "Menu Donatur",
@@ -29,8 +29,8 @@ export const rankData = {
   ],
   skyblock: [
     {
-      tier: "Tier 1",
       name: "GOLD",
+       price: 15000,
       features: [
         "Welcome Message GOLD", "Extra Chat Color", "Emotes in Chat",
         "Daily Chest GOLD", "GOLD Rank Kit", "/Heal", "/Feed", "/Ec", "/Wb",
@@ -38,8 +38,8 @@ export const rankData = {
       ],
     },
     {
-      tier: "Tier 2",
       name: "DIAMOND",
+       price: 15000,
       features: [
         "Welcome Message DIAMOND", "FLYING ON SPAWN", "More Extra Chat Color", "Emotes in Chat",
         "Daily Chest", "DIAMOND Rank Kit", "/Heal", "/Feed", "/Ec", "/Wb",
@@ -48,8 +48,8 @@ export const rankData = {
       ],
     },
     {
-      tier: "Tier 3",
       name: "EMERALD",
+       price: 15000,
       features: [
         "Welcome Message EMERALD", "FLYING ON SPAWN", "Massive Extra Chat Color", "Emotes in Chat",
         "Daily Chest", "EMERALD Rank Kit", "/Heal", "/Feed", "/Ec", "/Wb",
@@ -58,8 +58,8 @@ export const rankData = {
       ],
     },
     {
-      tier: "Tier 4",
       name: "NETHERITE",
+       price: 15000,
       features: [
         "Welcome Message NETHERITE", "FLYING ON SPAWN", "ULTRAS Extra Chat Color", "Emotes in Chat",
         "Daily Chest", "NETHERITE Rank Kit", "/Heal", "/Feed", "/Ec", "/Wb",

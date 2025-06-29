@@ -65,7 +65,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="opacity-90 hover:opacity-100 px-3 py-1">
-              <a href="/" className="block">
+              <a href="/rank" className="block">
                 Rank
               </a>
             </li>
