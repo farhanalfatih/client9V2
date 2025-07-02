@@ -9,7 +9,6 @@ const Gem = () => {
   const [nickname, setNickname] = useState("");
   const [platform, setPlatform] = useState("java");
   const [showNicknameInput, setShowNicknameInput] = useState(true);
-
   const isNicknameValid = nickname.trim() !== "";
   const formattedNickname = platform === "bedrock" ? `.${nickname}` : nickname;
 

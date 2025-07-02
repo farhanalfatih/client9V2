@@ -12,23 +12,37 @@ const GemCard = ({ amount, price, oldPrice, bestValue, image }) => {
   const [showInput, setShowInput] = useState(false);
   const [nama, setNama] = useState("");
   const [nickname, setNickname] = useState("");
+  const [platform, setPlatform] = useState("java");
   const [editNickname, setEditNickname] = useState(false);
   const [tempNickname, setTempNickname] = useState("");
+  const [note, setNote] = useState("");
 
   useEffect(() => {
     const savedNickname = localStorage.getItem("nickname") || "";
+    const savedPlatform = localStorage.getItem("platform") || "java";
     setNickname(savedNickname);
+    setPlatform(savedPlatform);
   }, []);
+
+  const formattedNick = platform === "bedrock" ? `.${nickname}` : nickname;
 
   const handleClick = () => {
     setShowInput(true);
   };
 
   const handleSend = () => {
-    const message = `Nama: ${nama}\nNickname: ${nickname || "Belum diisi"}\nPaket: ${amount} Gems`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = "6281234567890"; // Ganti nomor kamu
-    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    if (!nama.trim() || !nickname.trim()) return;
+
+    const message = `Halo Admin,%0A%0ASaya ingin membeli Gem:%0A%0A` +
+      `👤 *Nama:* ${nama}%0A` +
+      `🎮 *Nickname:* ${formattedNick}%0A` +
+      `📱 *Platform:* ${platform.toUpperCase()}%0A` +
+      `💎 *Paket:* ${amount} Gems%0A` +
+      `💰 *Harga:* ${formatRupiah(price)}%0A` +
+      `📝 *Catatan:* ${note || "-"}`;
+
+    const whatsappNumber = "6285326972099"; // Ganti sesuai kebutuhan
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
@@ -40,6 +54,7 @@ const GemCard = ({ amount, price, oldPrice, bestValue, image }) => {
 
   return (
     <>
+      {/* Card */}
       <div
         onClick={handleClick}
         className={`relative p-4 rounded-xl border shadow-md transition-all duration-200 cursor-pointer hover:scale-[1.02]
@@ -54,15 +69,13 @@ const GemCard = ({ amount, price, oldPrice, bestValue, image }) => {
             BEST VALUE!
           </div>
         )}
-
         <div className="flex flex-col items-center gap-3">
           <img
             src={image}
             alt={`${amount} gems`}
-            className="w-40 h-40 object-contain"
+            className="w-32 h-32 object-contain"
           />
           <p className="font-bold text-lg">{amount} GEMS</p>
-
           <div className="text-center">
             {oldPrice && oldPrice !== price ? (
               <>
@@ -85,37 +98,35 @@ const GemCard = ({ amount, price, oldPrice, bestValue, image }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-0 left-0 w-full h-full bg-white dark:bg-black bg-opacity-60 flex justify-center items-center z-50"
+            className="fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm flex justify-center items-center z-50"
           >
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
-              className="bg-white rounded-lg p-6 shadow-lg w-11/12 max-w-md text-black space-y-4"
+              className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-lg w-11/12 max-w-md text-black dark:text-white space-y-4 relative"
             >
-              <h2 className="text-xl font-bold">Lengkapi Pesanan</h2>
+              <button
+                className="absolute top-2 right-4 text-lg text-gray-500 hover:text-red-500"
+                onClick={() => setShowInput(false)}
+              >
+                &times;
+              </button>
 
-              {/* Nama Input */}
-                <div>
-                <label className="block font-medium mt-4">Nickname:</label>
+              <h2 className="text-xl font-bold mb-2">Konfirmasi Pembelian</h2>
+
+              {/* Nickname */}
+              <div>
+                <label className="block font-medium">Nickname:</label>
                 {!editNickname ? (
-                  <div className="flex items-center justify-between bg-gray-100 px-4 py-2 border rounded">
-                    <span>{nickname || "Belum diisi"}</span>
-                    <button
-                      onClick={() => {
-                        setTempNickname(nickname);
-                        setEditNickname(true);
-                      }}
-                      className="text-sm text-blue-600 underline"
-                    >
-                      Edit
-                    </button>
+                  <div className="flex items-center justify-between bg-gray-100 dark:bg-zinc-800 px-4 py-2 border rounded">
+                    <span>{formattedNick || "Belum diisi"}</span>
                   </div>
                 ) : (
                   <div className="flex items-center gap-2 mt-1">
                     <input
                       type="text"
-                      className="w-full px-4 py-2 border rounded"
+                      className="w-full px-4 py-2 border rounded dark:bg-zinc-800"
                       value={tempNickname}
                       onChange={(e) => setTempNickname(e.target.value)}
                       placeholder="Masukkan nickname baru"
@@ -130,17 +141,31 @@ const GemCard = ({ amount, price, oldPrice, bestValue, image }) => {
                 )}
               </div>
 
+              {/* Nama */}
               <div>
-                <label className="block font-medium">Nama:</label>
+                <label className="block font-medium">Nama Lengkap:</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border rounded"
+                  className="w-full px-4 py-2 border rounded dark:bg-zinc-800"
                   placeholder="Nama kamu"
                   value={nama}
                   onChange={(e) => setNama(e.target.value)}
                 />
               </div>
-              {/* Action Buttons */}
+
+              {/* Catatan */}
+              <div>
+                <label className="block font-medium">Catatan (opsional):</label>
+                <textarea
+                  rows={3}
+                  className="w-full px-4 py-2 border rounded dark:bg-zinc-800"
+                  placeholder="Contoh: kirim sebelum jam 8 malam"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                />
+              </div>
+
+              {/* Buttons */}
               <div className="flex justify-end gap-2 mt-4">
                 <button
                   onClick={() => setShowInput(false)}
@@ -150,9 +175,14 @@ const GemCard = ({ amount, price, oldPrice, bestValue, image }) => {
                 </button>
                 <button
                   onClick={handleSend}
-                  className="px-4 py-2 bg-green-600 text-white rounded text-sm"
+                  disabled={!nama.trim() || !nickname.trim()}
+                  className={`px-4 py-2 text-sm rounded text-white transition ${
+                    nama.trim() && nickname.trim()
+                      ? "bg-green-600 hover:bg-green-700"
+                      : "bg-gray-400 cursor-not-allowed"
+                  }`}
                 >
-                 Confirmasi
+                  Konfirmasi
                 </button>
               </div>
             </motion.div>
